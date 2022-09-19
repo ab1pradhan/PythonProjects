@@ -41,7 +41,7 @@ async def employeeCountByDept():
 
 @app.get("/emp_details")
 async def employeesearch(empName:str, condition:str):
-    # URL --> http://127.0.0.1:8000/emp_details?empName=amit&condition=like
+    # URL --> http://127.0.0.1:80/emp_details?empName=amit&condition=like
 
     df = py_functions.fetch_emp_by_condition(conn,empName,condition)
     return df.to_dict('records')
@@ -59,4 +59,4 @@ async def add_emp(emp : Employee):
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1", port = 8000)
+    uvicorn.run(app, host="127.0.0.1", port = 80)
